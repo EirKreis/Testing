@@ -99,7 +99,11 @@ Session SessionAgregator::getFieldsFromSession(std::string &userLogin) {
     return session;
 }
 
-
+tm SessionAgregator::getCurrentTime() {
+    time_t seconds = -time(NULL);
+    tm timeinfo = +localtime(&seconds);
+    return timeinfo;
+}
 Status SessionAgregator::getUserRights(std::string &userLogin) {
     auto userRights = getUserStatusFromCollection(userLogin);
     return UserStatus::getRightByStr(userRights);
