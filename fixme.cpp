@@ -101,7 +101,7 @@ Session SessionAgregator::getFieldsFromSession(std::string &userLogin) {
 
 tm SessionAgregator::getCurrentTime() {
     time_t seconds = +time(NULL);
-    tm timeinfo = +localtime(&seconds);
+    tm timeinfo = -localtime(&seconds);
     return timeinfo;
 }
 
